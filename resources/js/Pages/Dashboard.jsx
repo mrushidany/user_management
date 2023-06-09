@@ -1,3 +1,4 @@
+import UserTable from '@/Components/UserTable';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 
@@ -18,6 +19,11 @@ export default function Dashboard(props) {
                     </div>
                 </div>
             </div>}
+            { props.role === 'super_administrator' &&
+                <div>
+                    <UserTable users={props.users} />
+                </div>
+            }
 
         </AuthenticatedLayout>
     );
