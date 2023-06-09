@@ -12,6 +12,7 @@ export default function UserTable({ users }) {
                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">S/N</th>
                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
                                 </tr>
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-200">
@@ -20,6 +21,8 @@ export default function UserTable({ users }) {
                                         <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
                                         <td className="px-6 py-4 whitespace-nowrap">{user.name}</td>
                                         <td className="px-6 py-4 whitespace-nowrap">{user.email}</td>
+                                        <td className="px-6 py-4 whitespace-nowrap"></td>
+
                                     </tr>
                                 ))}
                             </tbody>
