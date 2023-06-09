@@ -31,7 +31,7 @@ Route::get('/dashboard', function () {
     $userRole = $user->roles()->whereIn('name', $roles)->first();
     return Inertia::render('Dashboard', [
         'role' => $userRole ? $userRole->name : null,
-        'users' => User::where('id', '!=', 1)->select('name', 'email')->get()
+        'users' => User::where('id', '!=', 1)->select('id','name', 'email')->get()
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
