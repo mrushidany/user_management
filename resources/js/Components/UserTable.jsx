@@ -1,6 +1,13 @@
 
 
 export default function UserTable({ users }) {
+    const handleEdit = (userId) => {
+        // Handle edit action
+    };
+
+    const handleDelete = (userId) => {
+        // Handle delete action
+    };
   return (
     <div className="py-12">
             <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -17,13 +24,25 @@ export default function UserTable({ users }) {
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-200">
                                 {users.map((user, index) => (
-                                    <tr key={user.id}>
-                                        <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
-                                        <td className="px-6 py-4 whitespace-nowrap">{user.name}</td>
-                                        <td className="px-6 py-4 whitespace-nowrap">{user.email}</td>
-                                        <td className="px-6 py-4 whitespace-nowrap"></td>
-
-                                    </tr>
+                                <tr key={user.id}>
+                                    <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap">{user.name}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap">{user.email}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap">
+                                    <button
+                                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+                                        onClick={() => handleEdit(user.id)}
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                                        onClick={() => handleDelete(user.id)}
+                                    >
+                                        Delete
+                                    </button>
+                                    </td>
+                                </tr>
                                 ))}
                             </tbody>
                         </table>
