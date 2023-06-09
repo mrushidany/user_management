@@ -10,8 +10,7 @@ export default function UserTable({ users }) {
         if (confirm('Are you sure you want to delete this user?')) {
             axios.delete(`/users/${userId}`)
             .then(response => {
-                // Handle success, such as updating the user list or displaying a success message
-                console.log('User deleted successfully');
+                console.log(response);
             })
             .catch(error => {
                 // Handle error, such as displaying an error message
