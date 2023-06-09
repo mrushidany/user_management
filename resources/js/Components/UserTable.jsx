@@ -1,4 +1,4 @@
-
+import axios from "axios";
 
 export default function UserTable({ users }) {
     const handleEdit = (userId) => {
@@ -6,7 +6,18 @@ export default function UserTable({ users }) {
     };
 
     const handleDelete = (userId) => {
-        // Handle delete action
+        // Send a request to delete the user with the specified ID
+        if (confirm('Are you sure you want to delete this user?')) {
+            axios.delete(`/users/${userId}`)
+            .then(response => {
+                // Handle success, such as updating the user list or displaying a success message
+                console.log('User deleted successfully');
+            })
+            .catch(error => {
+                // Handle error, such as displaying an error message
+                console.error('Error deleting user:', error);
+            });
+        }
     };
   return (
     <div className="py-12">
