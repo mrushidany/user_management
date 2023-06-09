@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UsersController;
 use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,8 @@ Route::get('/dashboard', function () {
         'users' => User::where('id', '!=', 1)->select('id','name', 'email')->get()
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::resource('users', UsersController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
